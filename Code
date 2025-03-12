@@ -1,0 +1,13 @@
+% Define parameters
+t = 0:0.001:1; % Time vector (5 seconds duration)
+
+% Generate sine wave with 1 Hz frequency
+y = sin(2 * pi * 1 * t); 
+
+% Plot the sine wave
+figure;
+plot(t, y);
+xlabel('Time (s)');
+ylabel('Amplitude');
+title('1 Hz Sine Wave');
+grid on;

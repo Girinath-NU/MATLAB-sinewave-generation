@@ -1,0 +1,28 @@
+% Define parameters
+fs = 100; % Sampling frequency (Hz)
+t = 0:1/fs:1; % Time vector (5 seconds duration)
+
+% Generate sine wave with 1 Hz frequency
+y = sin(2 * pi * 1 * t);
+
+% Plot the sine wave in the time domain
+figure;
+subplot(2,1,1);
+plot(t, y);
+xlabel('Time (s)');
+ylabel('Amplitude');
+title('1 Hz Sine Wave (Time Domain)');
+grid on;
+
+% Compute FFT
+N = length(y); % Number of samples
+Y = fft(y); % Compute FFT
+f = (0:N-1)*(fs/N); % Frequency vector
+
+% Plot magnitude spectrum
+subplot(2,1,2);
+plot(f(1:N/2), abs(Y(1:N/2))*2/N); % Single-sided amplitude spectrum
+xlabel('Frequency (Hz)');
+ylabel('Magnitude');
+title('Frequency Domain Representation (FFT)');
+grid on;
